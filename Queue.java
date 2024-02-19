@@ -1,6 +1,6 @@
 public class Queue {
     int number;
-    boolean wait = false;
+    boolean wait;
     synchronized public void getNumber(){
         if(!wait){
             try{
@@ -10,8 +10,8 @@ public class Queue {
             }
         }
         System.out.println("Getting number " + this.number);
-        notify();
         wait = false;
+        notify();
     }
     synchronized public void setNumber(int number){
         if(wait){
@@ -23,8 +23,7 @@ public class Queue {
         }
         this.number = number;
         System.out.println("Setting number to " + this.number);
-        notify();
         wait = true;
+        notify();
     }
-
 }

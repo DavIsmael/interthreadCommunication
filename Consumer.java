@@ -1,13 +1,14 @@
 public class Consumer implements Runnable{
-    Queue q;
     Thread t;
-    public Consumer(Queue q){
+    Queue q;
+    int[] amountOfNumbers;
+    public Consumer(Queue q, int[] amountOfNumbers){
         this.q = q;
         t = new Thread(this, "Consumer Thread");
+        this.amountOfNumbers = amountOfNumbers;
     }
-    @Override
     public void run(){
-        while(true){
+        for(int i = 0; i < amountOfNumbers.length; ++i){
             q.getNumber();
         }
     }
