@@ -7,6 +7,7 @@ public class Producer implements Runnable{
         t = new Thread(this, "Producer Thread");
         this.amountOfNumbers = amountOfNumbers;
     }
+    @Override
     public void run(){
         for(int i = 0; i < amountOfNumbers.length; ++i){
             q.setNumber(amountOfNumbers[i]);
