@@ -7,6 +7,7 @@ public class Consumer implements Runnable{
         t = new Thread(this, "Consumer Thread");
         this.amountOfNumbers = amountOfNumbers;
     }
+    @Override
     public void run(){
         for(int i = 0; i < amountOfNumbers.length; ++i){
             q.getNumber();
